@@ -1,23 +1,41 @@
 {
   "items": [
     {
-      "id": 0,
-      "name": "Carrots",
-      "bought": true
-    },
-    {
-      "id": 1,
-      "name": "Tomatoes",
-      "bought": true
-    },
-    {
-      "id": 2,
-      "name": "Onions",
-      "bought": true
-    },
-    {
       "name": "Potatoes",
-      "id": 3
+      "id": 3,
+      "bought": true
+    },
+    {
+      "name": "",
+      "id": 5
+    },
+    {
+      "name": "My Item",
+      "id": 6
+    },
+    {
+      "name": "",
+      "id": 7
+    },
+    {
+      "name": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "id": 9
+    },
+    {
+      "name": "Tomatoes",
+      "id": 10
+    },
+    {
+      "name": "My Item",
+      "id": 11
+    },
+    {
+      "name": "Second Item",
+      "id": 12
     }
   ]
 }

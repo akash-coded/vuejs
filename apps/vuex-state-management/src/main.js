@@ -4,24 +4,30 @@ import App from "./App.vue";
 
 const store = createStore({
   state: {
-    count: 0,
-  },
-  getters: {
-    getDoubleCount(state) {
-      return state.count * 2;
-    },
+    items: [],
   },
   mutations: {
-    increment(state, payload) {
-      state.count += payload.amount;
+    addItem(state, payload) {
+      state.items = [...state.items, payload.item];
+    },
+    setItems(state, payload) {
+      state.items = [...payload.items];
+    },
+    boughtItem(state, payload) {
+      state.items = state.items.map((item) => {
+        if (item.id === payload.id) {
+          item.bought = true;
+        }
+        return item;
+      });
+    },
+    removeItem(state, payload) {
+      state.items = state.items.filter((item) => item.id !== payload.id);
     },
   },
-  actions: {
-    async increment(context) {
-      context.commit({
-        type: "increment",
-        amount: 10,
-      });
+  getters: {
+    allItems(state) {
+      return state.items;
     },
   },
 });
@@ -31,12 +37,3 @@ const app = createApp(App);
 app.use(store);
 
 app.mount("#app");
-
-store.commit({
-  type: "increment",
-  amount: 10,
-});
-console.log(store.state.count);
-console.log(store.getters.getDoubleCount);
-
-store.dispatch("increment");
