@@ -2,7 +2,7 @@
   <div class="container">
     <div id="app">
       <h1>Shopping List</h1>
-      <input v-model="itemName" @keyup.enter="addItem" type="text" required /><br />
+      <input v-focus v-model="itemName" @keyup.enter="addItem" type="text" required /><br />
       <button @click="addItem()">Add Item</button>
     </div>
     <ul>
@@ -16,8 +16,18 @@
 </template>
 <script>
 import axios from "axios";
+
+const focus = {
+  mounted: (el) => el.focus(),
+  updated: (el) => el.focus(),
+}
+
 export default {
   name: "App",
+  directives: {
+    // enables v-focus in template
+    focus
+  },
   data() {
     return {
       itemName: "",
