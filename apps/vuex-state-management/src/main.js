@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createStore } from "vuex";
 import App from "./App.vue";
+import ItemsSummary from "./components/ItemsSummary.vue";
 
 const store = createStore({
   state: {
@@ -25,9 +26,32 @@ const store = createStore({
       state.items = state.items.filter((item) => item.id !== payload.id);
     },
   },
+  actions: {
+    addItem(context, payload) {
+      context.commit("addItem", payload);
+    },
+    setItems(context, payload) {
+      context.commit("setItems", payload);
+    },
+    boughtItem(context, payload) {
+      context.commit("boughtItem", payload);
+    },
+    removeItem(context, payload) {
+      context.commit("removeItem", payload);
+    },
+  },
   getters: {
     allItems(state) {
       return state.items;
+    },
+    totalItems(state) {
+      return state.items.length;
+    },
+    totalBoughtItems(state) {
+      return state.items.filter((item) => item.bought).length;
+    },
+    totalRemainingItems(state) {
+      return state.items.filter((item) => !item.bought).length;
     },
   },
 });
@@ -35,5 +59,7 @@ const store = createStore({
 const app = createApp(App);
 
 app.use(store);
+
+app.component("ItemsSummary", ItemsSummary);
 
 app.mount("#app");

@@ -12,6 +12,7 @@
       </li>
     </ul>
   </div>
+  <ItemsSummary />
 </template>
 <script>
 import axios from "axios";
@@ -36,6 +37,10 @@ export default {
   methods: {
     //method for adding items in the list
     async addItem() {
+      // simple validation
+      if (!this.itemName) {
+        return;
+      }
       const res = await axios.post(`http://localhost:3000/items`, {
         name: this.itemName,
         bought: false

@@ -21,7 +21,7 @@
       "id": 3
     },
     {
-      "name": "",
+      "name": "Oranges",
       "bought": false,
       "id": 4
     },
@@ -29,6 +29,16 @@
       "name": "Apples",
       "bought": true,
       "id": 5
+    },
+    {
+      "name": "Kiwis",
+      "bought": true,
+      "id": 6
+    },
+    {
+      "name": "Avocados",
+      "bought": true,
+      "id": 7
     }
   ]
 }
