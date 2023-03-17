@@ -41,14 +41,9 @@
       "id": 7
     },
     {
-      "name": "Sweet Potatoes",
+      "name": "Blueberries",
       "bought": false,
-      "id": 8
-    },
-    {
-      "name": "Beetroot",
-      "bought": false,
-      "id": 9
+      "id": 10
     }
   ]
 }
