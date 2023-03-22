@@ -9,14 +9,16 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
 import AddItem from './components/AddItem.vue'
-import ShoppingList from './components/ShoppingList.vue'
 
 export default {
   name: 'App',
   components: {
     AddItem,
-    ShoppingList
+    ShoppingList: defineAsyncComponent(() =>
+      import('./components/ShoppingList.vue') // Async component
+    )
   },
   data() {
     return {
