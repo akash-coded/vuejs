@@ -3,7 +3,8 @@
         <ul>
             <li v-for="item in items" :key="item.id">{{ item.name }} - {{ item.price }}</li>
         </ul>
-        <TotalPrice />
+        <TotalPrice class="total-price" />
+        <!-- Fallthrough Attribute -->
     </div>
 </template>
   
@@ -28,3 +29,12 @@ export default {
     }
 }
 </script>
+
+<style>
+.total-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+</style>

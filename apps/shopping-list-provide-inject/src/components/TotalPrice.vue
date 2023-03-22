@@ -1,7 +1,9 @@
 <template>
-    <div>
-        Total: {{ total }}
-    </div>
+    <p>Total: {{ total }}</p>
+
+    <!-- <div>
+        <p v-bind="$attrs">Total: {{ total }}</p>
+    </div> -->
 </template>
   
 <script>
@@ -13,6 +15,9 @@ export default {
         total() {
             return this.items.reduce((acc, item) => acc + item.price, 0)
         }
+    },
+    created() {
+        console.log(this.$attrs)
     }
 }
 </script>
