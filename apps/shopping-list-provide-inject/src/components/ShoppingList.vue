@@ -1,8 +1,8 @@
 <template>
     <div>
-        <ul>
+        <transition-group name="fade" tag="ul">
             <li v-for="item in items" :key="item.id">{{ item.name }} - {{ item.price }}</li>
-        </ul>
+        </transition-group>
         <TotalPrice class="total-price" />
         <!-- Fallthrough Attribute -->
     </div>
@@ -10,11 +10,13 @@
   
 <script>
 import TotalPrice from './TotalPrice.vue'
+import { TransitionGroup } from 'vue';
 
 export default {
     name: 'ShoppingList',
     components: {
-        TotalPrice
+        TotalPrice,
+        TransitionGroup
     },
     props: {
         items: {
@@ -36,5 +38,15 @@ export default {
     font-weight: bold;
     color: #333;
     margin-top: 20px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>

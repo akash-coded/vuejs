@@ -1,8 +1,8 @@
 <template>
     <button @click="$emit('someEvent')">Click me</button>
     <hr />
-    <button @click="$emit('increaseBy', 1)">
-        Increase by 1
+    <button @click="$emit('increaseBy', 2)">
+        Increase by 2
     </button>
 </template>
 
